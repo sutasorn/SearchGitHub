@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
-const Repo = (props) => {
-  if (props.repitems) {
-    return (
+class Repo extends Component {
+  constructor(){
+    super();
+    this.state={
+      repitems:[]
+    }
+   
   
-        <ul>
-        The list of repository
-          {props.repitems.map((repitem) =>
-            <li key={repitem.id}>
+  }
+
+  render() {
+  
+    if(!this.props.repitems){
+      return(null)
+    }
+    return(
+      <ul>
+      The list of repository
+        {this.props.repitems.map((repitem) =>
+          <li key={repitem.id}>
+            <div>
               <div>
-                <div>
-                  {repitem.name} 
-                </div>
+                {repitem.name} 
               </div>
-            </li>
-          )}
-        </ul>
-      )
-  } else { return null;}
-  };
+            </div>
+          </li>
+        )}
+      </ul>
+    )
+  }
+}
 export default Repo;

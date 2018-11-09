@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state={
       username:[],
-      info:[],repoitems:[],follwer:[],
+      info:'',repoitems:'',follwer:'',
       formData: {
         username: [],
         followers :[]
@@ -46,27 +46,23 @@ handleFormChange(event) {
 };
   render() {
     return (
-      <div className="App" className="container">
-        <header className="App-header">
-        </header>
-        <div class="row">
-          <div class="col-12">
+      <div>
+          <div className='App-head'>
             <Form
               formData={this.state.formData}
               handleUserFormSubmit={this.handleUserFormSubmit}
               handleFormChange={this.handleFormChange}
             />
-          </div>
         </div>
-        <div class="App-card">
-        <div class="row">
-          <div class="col-12">
+        <div className='App-body'>
+        <div className='App-card' >
+          <div >
              <ProfileDetails infoclean={this.state.info}/>
           </div>
-          <div class="col-12">
-             <Follwer follweritems={this.state.follwer}/>
+          <div>
+             <Follwer follweritems={this.state.follwer} infoclean={this.state.info}/>
           </div>
-          <div class="col-12">
+          <div >
              <Repo repitems={this.state.repoitems}/>
           </div>
         </div>
